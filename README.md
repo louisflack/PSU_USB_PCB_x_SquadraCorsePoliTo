@@ -15,7 +15,7 @@ Utilizing a standard USB-C connector, the board is designed for maximum utility 
 
 * **Connector:** USB-C Female Connector (Molex / Wurth Elektronik).
 * **Power Output:** Configured to deliver a stable 5V at up to 3A (15W).
-* **PD Negotiation:** To optimize board space and reduce system complexity, a dedicated Power Delivery (PD) integrated circuit was intentionally omitted[cite: 2]. Instead, two 5.1 kOhm pull-down resistors are tied to the CC1 and CC2 pins to strictly hardware-limit the connection to standard 5V operation.
+* **PD Negotiation:** To optimize board space and reduce system complexity, a dedicated Power Delivery (PD) integrated circuit was intentionally omitted. Instead, two 5.1 kOhm pull-down resistors are tied to the CC1 and CC2 pins to strictly hardware-limit the connection to standard 5V operation.
 * **Operating Temperature:** Designed to withstand standard automotive/racing environments from -40°C to 85°C.
 * **Form Factor:** Extremely compact footprint measuring 27.94mm x 30.10mm.
 
@@ -30,7 +30,7 @@ To protect downstream electronics from bench-power anomalies, the board features
 ### 2. Dual-Stage Power Filtering
 Stable power is critical for sensors and MCUs. The board utilizes two filter stages to condition the USB input:
 * **LPF Filter:** A Low-Pass Filter (10uF capacitor and 10kOhm resistor) debounces the physical power switch (S1) and increases output stability, achieving a 1.6Hz cutoff frequency.
-* **PI Filter:** A classic PI filter network (using a BLM31KN102SH1L ferrite bead) cleans high-frequency noise from the DC line[cite: 2]. *Design Note: While standard USB filtering calls for a bulk electrolytic capacitor, packaging constraints forced a pivot to a Multi-Layer Ceramic Capacitor (MLCC). While slightly less performant, this trade-off was necessary to meet the strict spatial requirements of the board.*
+* **PI Filter:** A classic PI filter network (using a BLM31KN102SH1L ferrite bead) cleans high-frequency noise from the DC line. *Design Note: While standard USB filtering calls for a bulk electrolytic capacitor, packaging constraints forced a pivot to a Multi-Layer Ceramic Capacitor (MLCC). While slightly less performant, this trade-off was necessary to meet the strict spatial requirements of the board.*
 
 ### 3. Integrated Testability
 For rapid debugging, the top layer includes dedicated, labeled test points: `GND`, `5V PRE` (to verify raw USB-C output), and `5V POST` (to verify the output after the filters and protection circuits).
